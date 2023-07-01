@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boiler
   - PickUp
+  - Pumpkin
   layers:
   - Default
   - TransparentFX

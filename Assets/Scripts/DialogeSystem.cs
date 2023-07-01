@@ -15,9 +15,18 @@ public class DialogeSystem : MonoBehaviour
     [SerializeField] private Timer _timer;
 
     bool canSkeep = true;
+    private EnemyController _enemy;
+    private BroomController _broom;
+
 
     private void Start()
     {
+        _enemy = FindObjectOfType<EnemyController>();
+        _enemy.gameObject.SetActive(false);
+
+        _broom = FindObjectOfType<BroomController>();
+        _broom.gameObject.SetActive(false);
+
         _panel.SetActive(true);
         _text.text = string.Empty;
         StartDialogue();
@@ -46,8 +55,11 @@ public class DialogeSystem : MonoBehaviour
             index++;
             _text.text = string.Empty;
             StartCoroutine(TypeLine());
-        }else
+        }
+        else
         {
+            _enemy.gameObject.SetActive(true);
+            _broom.gameObject.SetActive(true);
             _panel.SetActive(false);
             _text.gameObject.SetActive(false);
             canSkeep = false;
