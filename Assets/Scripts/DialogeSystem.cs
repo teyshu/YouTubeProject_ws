@@ -63,7 +63,7 @@ public class DialogeSystem : MonoBehaviour
             _panel.SetActive(false);
             _text.gameObject.SetActive(false);
             canSkeep = false;
-            _timer.StartTimer();
+            //_timer.StartTimer();
         }
     }
 
