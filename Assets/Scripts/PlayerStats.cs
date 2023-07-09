@@ -36,4 +36,12 @@ public class PlayerStats : MonoBehaviour
             currentHealth++;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Trigger")
+        {
+            EventManager.OnLeftTheCastle();
+        }
+    }
 }

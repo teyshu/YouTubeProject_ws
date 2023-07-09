@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ingridient : MonoBehaviour
 {
     [SerializeField] public string element;
+    [SerializeField] public GameObject particleFood;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -13,6 +14,8 @@ public class Ingridient : MonoBehaviour
             if(collision.gameObject.GetComponent<Boiler>().canCook)
                 collision.gameObject.GetComponent<Boiler>().AddIngridient(this);
             gameObject.SetActive(false);
+            var particle = Instantiate(particleFood, transform.position,Quaternion.identity);
+            Destroy(particle, 3f);
         }
     }
 }

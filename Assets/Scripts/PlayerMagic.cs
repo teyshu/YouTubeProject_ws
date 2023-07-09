@@ -1,21 +1,16 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMagic : MonoBehaviour
+public class PlayerMagic : Magic
 {
-    public void ReceiveMagicFire(int lvlMagic)
+    private void Update()
     {
-        print("Fire");
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            MagicAttack();
+        }
     }
 
-    public void ReceiveMagicGround(int lvlMagic)
-    {
-        print("Ground");
-    }
-
-    public void ReceiveMagicWater(int lvlMagic)
-    {
-        print("Water");
-    }
 }

@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class Boiler : MonoBehaviour
 {
     [SerializeField] private int _stateMagic = 1; // уровень магии 3 макс
-    [SerializeField] private PlayerMagic _playerMagic;
+    [SerializeField] private Magic _playerMagic;
 
     public bool canCook = true;
 

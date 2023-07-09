@@ -40,5 +40,6 @@ public class BroomController : MonoBehaviour
         {
             broomAnimator.SetTrigger("BroomShoot");
         }
+        Destroy(potion, 10f);
     }
 }

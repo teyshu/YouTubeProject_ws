@@ -84,10 +84,28 @@ public class EnemyController : MonoBehaviour
             _enemyImg.fillAmount = _currentHp / _maxHp;
             if (_currentHp <= 0)
             {
-                Instantiate(_moonshinePrefab, transform.position, Quaternion.identity);
+                var random = Random.Range(0, 15);
+                if (random == 3)
+                    Instantiate(_moonshinePrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
                 
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Pumpkin")
+        {
+            StartCoroutine(ActivateHitEffect());
+            _currentHp -= 0.1f;
+            _enemyImg.fillAmount = _currentHp / _maxHp;
+            if (_currentHp <= 0)
+            {
+                Instantiate(_moonshinePrefab, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+
         }
     }
 
